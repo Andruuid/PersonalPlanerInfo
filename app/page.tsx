@@ -28,29 +28,24 @@ export default function HomePage() {
             Ratgeber · Schweiz · KMU
           </p>
           <h1 className="mt-4 max-w-3xl font-serif text-4xl font-semibold tracking-tight text-ink-900 sm:text-5xl">
-            Personalplanung für Schweizer KMU – Dienstplan, Ferien und Schichtplan
-            verständlich erklärt
+            Personalplanung verständlich erklärt – ohne HR-Fachchinesisch
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-600">
-            Ob Boutique, Restaurant oder Coiffeursalon: Wer Mitarbeitende plant, kennt
-            das Problem – Schichten in Excel, Ferienwünsche per WhatsApp, Überstunden in
-            einer separaten Tabelle. Hier finden Sie praxisnahes Wissen zur{" "}
-            <strong>Mitarbeiterplanung</strong>, <strong>Ferienplanung</strong> und{" "}
-            <strong>Schichtplanung</strong> – ohne HR-Fachchinesisch.
+            {siteConfig.heroIntro}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/ratgeber"
               className="inline-flex items-center gap-2 rounded-lg bg-accent-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent-700"
             >
-              Ratgeber entdecken
+              Alle Artikel
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href={hubPath}
+              href="/ueber-uns"
               className="inline-flex items-center gap-2 rounded-lg border border-ink-900/15 bg-white px-5 py-2.5 text-sm font-semibold text-ink-800 hover:bg-paper-warm"
             >
-              Software-Überblick
+              Über diesen Ratgeber
             </Link>
           </div>
         </div>

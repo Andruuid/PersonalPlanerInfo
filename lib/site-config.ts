@@ -1,10 +1,12 @@
 export const siteConfig = {
   name: "Mitarbeiterplaner.info",
   shortName: "Mitarbeiterplaner.info",
-  tagline: "Ratgeber zu Dienstplan, Ferienplanung und Schichtplan für KMU",
+  tagline: "Ratgeber für Personalplanung in Schweizer KMU",
   seoTitle: "Dienstplan Software Schweiz – Personalplanung für KMU",
   description:
     "Schichtplan, Ferien und Zeitsaldo für Läden & Gastronomie: Praxis-Tipps für Schweizer KMU – plus einfache Cloud-Software statt Excel. Jetzt lesen.",
+  heroIntro:
+    "Praxiswissen zu Dienstplan, Ferienplanung und Teamorganisation – verständlich erklärt für Läden, Gastronomie und Dienstleister in der Schweiz. Praxisnahe Artikel zu Dienstplan, Ferienplanung, Teamführung und typischen Fallstricken – für Läden, Gastronomie und Dienstleister.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.mitarbeiterplaner.info",
   ogImage: "/og-default.png",
   productName: "easyplaner",
