@@ -32,6 +32,12 @@ export default function ImpressumPage() {
           <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
         </p>
 
+        <h2>Datenschutz</h2>
+        <p>
+          Informationen zur Datenverarbeitung finden Sie in unserer{" "}
+          <Link href="/datenschutz">Datenschutzerklärung</Link>.
+        </p>
+
         <h2>Haftungsausschluss</h2>
         <p>
           Die Inhalte dienen der allgemeinen Information. Sie ersetzen keine

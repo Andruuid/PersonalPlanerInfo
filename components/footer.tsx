@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
-import { siteConfig } from "@/lib/site-config";
+import { hubPath, siteConfig } from "@/lib/site-config";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="border-t border-ink-900/10 bg-paper-warm">
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="font-serif text-lg font-semibold text-ink-900">
               Mitarbeiterplaner<span className="text-accent-600">.info</span>
@@ -21,14 +21,43 @@ export function Footer() {
 
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-ink-500">
-              Ratgeber
+              Beliebte Themen
             </p>
             <ul className="mt-3 space-y-2 text-sm">
+              <li>
+                <Link href={hubPath} className="text-ink-700 hover:text-ink-900">
+                  Personalplanung Software Schweiz
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/ratgeber/excel-dienstplan-alternativen-schweiz"
+                  className="text-ink-700 hover:text-ink-900"
+                >
+                  Excel-Dienstplan Alternative
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/ratgeber/ferienplanung-ohne-streit"
+                  className="text-ink-700 hover:text-ink-900"
+                >
+                  Ferienplanung Mitarbeiter
+                </Link>
+              </li>
               <li>
                 <Link href="/ratgeber" className="text-ink-700 hover:text-ink-900">
                   Alle Artikel
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-ink-500">
+              Ratgeber
+            </p>
+            <ul className="mt-3 space-y-2 text-sm">
               <li>
                 <Link href="/ueber-uns" className="text-ink-700 hover:text-ink-900">
                   Über uns
@@ -39,6 +68,11 @@ export function Footer() {
                   Impressum
                 </Link>
               </li>
+              <li>
+                <Link href="/datenschutz" className="text-ink-700 hover:text-ink-900">
+                  Datenschutz
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -47,7 +81,7 @@ export function Footer() {
               Software-Tipp
             </p>
             <p className="mt-3 text-sm leading-relaxed text-ink-600">
-              Für digitale Dienstplanung in der Schweiz empfehlen wir{" "}
+              Für digitale Dienstplanung in der Schweiz:{" "}
               <a
                 href={siteConfig.productUrl}
                 className="inline-flex items-center gap-1 font-medium text-accent-600 hover:text-accent-700"

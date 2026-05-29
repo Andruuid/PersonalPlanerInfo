@@ -7,6 +7,15 @@ type PageMetadataOptions = {
   path: string;
 };
 
+const ogImages = [
+  {
+    url: siteConfig.ogImage,
+    width: 1200,
+    height: 630,
+    alt: `${siteConfig.name} – Personalplanung für Schweizer KMU`,
+  },
+];
+
 export function createPageMetadata({
   title,
   description,
@@ -14,10 +23,13 @@ export function createPageMetadata({
 }: PageMetadataOptions): Metadata {
   const canonicalPath = path.startsWith("/") ? path : `/${path}`;
   const isHome = canonicalPath === "/";
-  const fullTitle = isHome ? siteConfig.name : `${title} | ${siteConfig.shortName}`;
+  const pageTitle = isHome ? siteConfig.seoTitle : title;
+  const fullTitle = isHome
+    ? siteConfig.seoTitle
+    : `${title} | ${siteConfig.shortName}`;
 
   return {
-    title: isHome ? siteConfig.name : title,
+    title: pageTitle,
     description,
     alternates: { canonical: canonicalPath },
     openGraph: {
@@ -27,11 +39,13 @@ export function createPageMetadata({
       siteName: siteConfig.name,
       locale: "de_CH",
       type: "website",
+      images: ogImages,
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
+      images: [siteConfig.ogImage],
     },
   };
 }

@@ -19,12 +19,57 @@ export type Article = {
   relatedSlugs: string[];
 };
 
-export const categories = [
-  { id: "planung", label: "Planung & Tools" },
-  { id: "team", label: "Team & Kommunikation" },
-  { id: "recht", label: "Recht & Fairness" },
-  { id: "detailhandel", label: "Detailhandel" },
-] as const;
+export type Category = {
+  id: string;
+  label: string;
+  slug: string;
+  seoTitle: string;
+  seoDescription: string;
+  intro: string;
+};
+
+export const categories: Category[] = [
+  {
+    id: "planung",
+    label: "Planung & Tools",
+    slug: "planung-tools",
+    seoTitle: "Planung & Tools – Dienstplan Software und Excel-Alternativen",
+    seoDescription:
+      "Artikel zu Dienstplan-Software, Excel-Alternativen und digitaler Personalplanung für Schweizer KMU.",
+    intro:
+      "Wann Excel reicht, wann Software sinnvoll ist – und worauf Sie bei der Wahl achten sollten.",
+  },
+  {
+    id: "team",
+    label: "Team & Kommunikation",
+    slug: "team-kommunikation",
+    seoTitle: "Team & Kommunikation – Ferienplanung und Mitarbeiter einbeziehen",
+    seoDescription:
+      "Tipps zu fairer Ferienplanung, Teamkommunikation und Akzeptanz beim Schichtplan in kleinen Betrieben.",
+    intro:
+      "Ferien fair planen, Wünsche sammeln und das Team in die Planung einbeziehen – ohne HR-Abteilung.",
+  },
+  {
+    id: "recht",
+    label: "Recht & Fairness",
+    slug: "recht-fairness",
+    seoTitle: "Recht & Fairness – Absenzen und faire Personalplanung",
+    seoDescription:
+      "Praxiswissen zu Abwesenheitsmanagement, Krankmeldungen und fairem Umgang mit Absenzen in KMU.",
+    intro:
+      "Absenzen respektvoll managen – mit klaren Abläufen statt Misstrauen im Team.",
+  },
+  {
+    id: "detailhandel",
+    label: "Detailhandel",
+    slug: "detailhandel",
+    seoTitle: "Detailhandel – Schichtplan für Boutiquen und Läden",
+    seoDescription:
+      "Schichtplanung im Einzelhandel: Teilzeit, Samstage, Aushilfen und Hochsaison in Schweizer Läden.",
+    intro:
+      "Boutiquen, Schmuck- und Uhrenläden planen anders als Büros – konkrete Tipps für den Alltag.",
+  },
+];
 
 export const articles: Article[] = [
   {
@@ -278,7 +323,192 @@ export const articles: Article[] = [
       "schichtplan-detailhandel-teilzeit",
     ],
   },
+  {
+    slug: "dienstplan-gastronomie-schweiz",
+    title: "Dienstplan Gastronomie Schweiz: Schichtplan für Restaurants und Cafés",
+    description:
+      "Spitzenzeiten, Aushilfen und kurzfristige Ausfälle: So planen Restaurants und Cafés in der Schweiz ohne Chaos.",
+    category: "planung",
+    readMinutes: 7,
+    publishedAt: "2026-05-26",
+    updatedAt: "2026-05-29",
+    keywords: [
+      "Dienstplan Gastronomie Schweiz",
+      "Schichtplan Restaurant",
+      "Personalplanung Gastronomie",
+    ],
+    intro:
+      "In der Gastronomie ändert sich der Bedarf stündlich: Mittagsrush, Abendservice, Wochenenden. Wer mit Excel und Zuruf plant, steht spätestens bei der nächsten Krankmeldung vor einem Problem. Dieser Ratgeber zeigt, wie kleine Restaurants und Cafés in der Schweiz strukturiert planen – ohne komplexe HR-Software.",
+    sections: [
+      {
+        heading: "Typische Planungsherausforderungen in der Gastronomie",
+        paragraphs: [
+          "Anders als im Büro arbeitet das Team in Schichten: Service, Küche, Bar – oft mit unterschiedlichen Zeiten und Pensums. Dazu kommen Aushilfen für Wochenenden, Saisonkräfte und kurzfristige Ausfälle kurz vor dem Service.",
+          "Viele Betriebe starten mit einer Wochenübersicht in Excel und WhatsApp-Gruppen. Das funktioniert bei drei bis vier festen Kräften. Sobald Spitzenzeiten, Ferien und Krankheit zusammenkommen, wird der Plan fragil.",
+        ],
+      },
+      {
+        heading: "Spitzenzeiten und Besetzung planen",
+        paragraphs: [
+          "Planen Sie nicht nur «wer da ist», sondern «wer wann gebraucht wird». Ein Dienstagmittag braucht andere Besetzung als ein Freitagabend. Dienstvorlagen wie «Normaler Wochentag», «Freitag Abend» oder «Brunch-Sonntag» sparen jede Woche Zeit.",
+          "Halten Sie eine Mindestbesetzung pro Bereich fest: Küche, Service, Bar. So sehen Sie sofort, wenn eine Schicht unterbesetzt ist – statt erst während des Services.",
+        ],
+      },
+      {
+        heading: "Aushilfen und kurzfristige Ausfälle",
+        paragraphs: [
+          "Führen Sie eine Liste erreichbarer Aushilfen mit Verfügbarkeit: Samstag ja/nein, nur Service, nicht Küche. Bei Krankheit um 10 Uhr ist das wertvoller als zehn Anrufe in der Kette.",
+          "Dokumentieren Sie, wer welche Schicht übernommen hat – auch informell. Sonst verlieren Sie den Überblick über Gegenleistungen und Überstunden.",
+        ],
+      },
+      {
+        heading: "Ferien und Ruhetage in der Gastronomie",
+        paragraphs: [
+          "Gastronomie hat wenig Spielraum: Wochenenden und Feiertage sind Geschäft. Klären Sie früh, wer in welcher Ferienwoche weg sein kann – und kommunizieren Sie Sperrzeiten (Weihnachtsgeschäft, Sechseläuten-Wochenende) transparent.",
+          "Rotieren Sie unpopuläre Dienste systematisch. Wer jedes zweite Wochenende arbeitet, sollte das im Plan sichtbar sein.",
+        ],
+      },
+    ],
+    takeaway:
+      "In der Gastronomie gewinnt, wer Spitzenzeiten vorplant, Aushilfen strukturiert einbindet und Ferien früh klärt – nicht wer am lautesten zuruf plant.",
+    relatedSlugs: [
+      "excel-dienstplan-alternativen-schweiz",
+      "ferienplanung-ohne-streit",
+      "schichtplan-detailhandel-teilzeit",
+    ],
+  },
+  {
+    slug: "zeitsaldo-ueberstunden-kmu",
+    title: "Zeitsaldo und Überstunden in KMU: ohne Excel-Chaos",
+    description:
+      "Soll/Ist, Überstunden und Ferienresttage nachhalten – wie kleine Betriebe in der Schweiz Zeitsaldo fair führen.",
+    category: "planung",
+    readMinutes: 6,
+    publishedAt: "2026-05-27",
+    updatedAt: "2026-05-29",
+    keywords: [
+      "Zeitsaldo Software",
+      "Arbeitszeitplanung Schweiz",
+      "Überstunden KMU",
+    ],
+    intro:
+      "Wer Überstunden «irgendwann ausgleicht» und Ferienresttage im Kopf behält, verliert irgendwann den Überblick – und das Vertrauen im Team. Zeitsaldo ist in Schweizer KMU kein Luxus, sondern Fairness. So führen Sie Soll/Ist und Überstunden ohne Tabellen-Wirrwarr.",
+    sections: [
+      {
+        heading: "Warum Zeitsaldo wichtig ist – auch ohne grosse HR-Abteilung",
+        paragraphs: [
+          "Mitarbeitende wollen wissen, ob sie Plus- oder Minusstunden haben. Inhaber wollen wissen, ob Überstunden fair verteilt sind. Ohne zentrale Übersicht entstehen Gerüchte und Konflikte – besonders bei Teilzeit und wechselnden Schichten.",
+          "Excel kann Zeitsaldo abbilden – aber nur, wenn der Dienstplan und die Stundenbuchung synchron laufen. Sobald jemand eine Schicht tauscht oder krank wird, stimmt die Tabelle oft nicht mehr.",
+        ],
+      },
+      {
+        heading: "Soll/Ist pro Woche statt Endlos-Rechnerei",
+        paragraphs: [
+          "Viele KMU rechnen am Monatsende nach – das ist fehleranfällig. Besser: wöchentlicher Abgleich von geplanten und tatsächlichen Stunden. Der Dienstplan ist die Basis, Abweichungen werden sofort sichtbar.",
+          "Dokumentieren Sie manuelle Korrekturen mit kurzer Begründung. «Samstag länger geblieben wegen Andrang» reicht – wichtig ist Nachvollziehbarkeit.",
+        ],
+      },
+      {
+        heading: "Überstunden, UEZ und Zeitausgleich",
+        paragraphs: [
+          "In der Schweiz gibt es unterschiedliche Modelle: Überzeitausgleich (UEZ), Zeitausgleich (TZT), Auszahlung. Klären Sie im Team, was bei Ihnen gilt – schriftlich, kurz, verständlich.",
+          "Führen Sie Überstunden nicht «mental». Auch informelle Ausgleiche brauchen irgendwann Zahlen, sonst entsteht Ungerechtigkeitsgefühl.",
+        ],
+      },
+      {
+        heading: "Wann Software den Unterschied macht",
+        paragraphs: [
+          "Zeitsaldo-Software verbindet Dienstplan und Zeitkonten: Nach Wochenabschluss werden Soll und Ist verglichen, Salden aktualisiert. Ferienresttage und Überstunden sind für Betroffene einsehbar – nicht öffentlich für alle, aber fair nachvollziehbar.",
+          "Entscheidend ist nicht die Anzahl der Funktionen, sondern ob Plan und Zeitkonten in einem System leben – ohne Medienbruch zu Excel.",
+        ],
+      },
+    ],
+    takeaway:
+      "Fairer Zeitsaldo braucht wöchentliche Klarheit, dokumentierte Korrekturen und ein System, das Plan und Stunden zusammenführt – nicht Tabellen, die niemand mehr versteht.",
+    relatedSlugs: [
+      "excel-dienstplan-alternativen-schweiz",
+      "personalplanung-ohne-excel",
+      "ferienplanung-ohne-streit",
+    ],
+  },
+  {
+    slug: "personalplanung-ohne-excel",
+    title: "Personalplanung ohne Excel: Wann und wie der Wechsel gelingt",
+    description:
+      "Vom Excel-Dienstplan zur Cloud-Lösung: Schritte, Kriterien und typische Fallstricke für Schweizer KMU.",
+    category: "planung",
+    readMinutes: 7,
+    publishedAt: "2026-05-28",
+    updatedAt: "2026-05-29",
+    keywords: [
+      "Personalplanung ohne Excel",
+      "Cloud Dienstplan",
+      "Dienstplan erstellen online",
+    ],
+    intro:
+      "Excel war jahrelang der Standard für Dienstpläne in KMU. Aber Versionen, WhatsApp-Wünsche und separate Ferientabellen kosten Zeit. Personalplanung ohne Excel heisst nicht «alles auf einmal umstellen» – sondern einen klaren Weg, der Ihr Team mitnimmt.",
+    sections: [
+      {
+        heading: "Was Excel gut kann – und wo es scheitert",
+        paragraphs: [
+          "Excel ist flexibel, bekannt und «gratis». Für zwei bis vier Personen mit festen Zeiten reicht oft eine Wochenübersicht. Solange der Aufwand unter einer Stunde pro Woche bleibt und niemand über vergessene Schichten klagt, gibt es keinen Zwang zu wechseln.",
+          "Excel scheitert, wenn mehrere Dateiversionen zirkulieren, Ferienwünsche über verschiedene Kanäle kommen und der Plan bei Krankheit neu gebaut werden muss. Dann kostet Excel mehr Zeit, als es spart.",
+        ],
+      },
+      {
+        heading: "Was «Personalplanung ohne Excel» konkret bedeutet",
+        paragraphs: [
+          "Eine Cloud-Lösung zentralisiert den Dienstplan: Eine Version, für alle sichtbar, auf Desktop und Smartphone. Ferienanträge, Absenzen und Zeitsaldo leben im gleichen System – nicht in separaten Tabellen und Chats.",
+          "Der Wechsel ist kein IT-Projekt. Gute KMU-Software ist in Tagen eingerichtet, nicht in Wochen. Entscheidend ist, dass Mitarbeitende den Plan wirklich nutzen.",
+        ],
+      },
+      {
+        heading: "Kriterien für die Wahl einer Lösung",
+        paragraphs: [
+          "Fragen Sie nicht «Welche Software hat die meisten Features?», sondern:",
+        ],
+        list: [
+          "Kann mein Team den Plan auf dem Handy lesen?",
+          "Sind Ferienanträge im Planungskontext sichtbar?",
+          "Wird Zeitsaldo automatisch aus dem Wochenplan abgeleitet?",
+          "Ist die Oberfläche verständlich ohne Schulung?",
+          "Passt der Preis zu meiner Teamgrösse?",
+        ],
+      },
+      {
+        heading: "Den Wechsel ohne Rebellion im Team",
+        paragraphs: [
+          "Starten Sie mit einer Testwoche: Parallel zu Excel den Plan in der neuen Lösung führen. Mitarbeitende sehen den Unterschied – weniger Nachfragen, klarere Schichten.",
+          "Kommunizieren Sie offen: «Wir testen etwas Neues, weil Excel uns zu viel Zeit kostet.» Kein Big-Bang am Montagmorgen ohne Vorwarnung.",
+        ],
+      },
+    ],
+    takeaway:
+      "Personalplanung ohne Excel gelingt, wenn Sie ehrlich prüfen, ob Excel noch reicht – und dann eine einfache Cloud-Lösung wählen, die Ihr Team wirklich nutzt.",
+    relatedSlugs: [
+      "excel-dienstplan-alternativen-schweiz",
+      "zeitsaldo-ueberstunden-kmu",
+      "dienstplan-gastronomie-schweiz",
+    ],
+  },
 ];
+
+export function getCategoryBySlug(slug: string): Category | undefined {
+  return categories.find((c) => c.slug === slug);
+}
+
+export function getCategoryById(id: string): Category | undefined {
+  return categories.find((c) => c.id === id);
+}
+
+export function getCategoryPath(categoryId: string): string {
+  const category = getCategoryById(categoryId);
+  return category ? `/ratgeber/kategorie/${category.slug}` : "/ratgeber";
+}
+
+export function getAllCategorySlugs(): string[] {
+  return categories.map((c) => c.slug);
+}
 
 export function getArticle(slug: string): Article | undefined {
   return articles.find((a) => a.slug === slug);

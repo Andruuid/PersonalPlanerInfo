@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     path: "/",
   }),
   title: {
-    default: `${siteConfig.name} – ${siteConfig.tagline}`,
+    default: siteConfig.seoTitle,
     template: `%s | ${siteConfig.shortName}`,
   },
 };

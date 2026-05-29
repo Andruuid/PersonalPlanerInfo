@@ -7,13 +7,13 @@ import { ArticleCard } from "@/components/article-card";
 import { ProductCallout } from "@/components/product-callout";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
-  articles,
   categories,
   getAllSlugs,
   getArticle,
+  getCategoryPath,
 } from "@/lib/articles";
 import { createPageMetadata } from "@/lib/seo/metadata";
-import { articleSchema } from "@/lib/seo/schema";
+import { articleSchema, breadcrumbSchema } from "@/lib/seo/schema";
 import { siteConfig } from "@/lib/site-config";
 import { formatDate } from "@/lib/utils";
 
@@ -51,9 +51,18 @@ export default async function ArticlePage({ params }: PageProps) {
     .filter((a): a is NonNullable<typeof a> => Boolean(a));
   const articleUrl = `${siteConfig.url}/ratgeber/${slug}`;
 
+  const breadcrumbs = [
+    { name: "Start", path: "/" },
+    { name: "Ratgeber", path: "/ratgeber" },
+    ...(category
+      ? [{ name: category.label, path: getCategoryPath(category.id) }]
+      : []),
+    { name: article.title, path: `/ratgeber/${slug}` },
+  ];
+
   return (
     <>
-      <JsonLd data={articleSchema(article, articleUrl)} />
+      <JsonLd data={[articleSchema(article, articleUrl), breadcrumbSchema(breadcrumbs)]} />
 
       <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
         <nav className="text-sm text-ink-500">
@@ -67,16 +76,21 @@ export default async function ArticlePage({ params }: PageProps) {
           {category ? (
             <>
               <span className="mx-2">/</span>
-              <span className="text-ink-700">{category.label}</span>
+              <Link href={getCategoryPath(category.id)} className="hover:text-ink-900">
+                {category.label}
+              </Link>
             </>
           ) : null}
         </nav>
 
         <header className="mt-8">
           {category ? (
-            <span className="rounded-full bg-accent-100 px-2.5 py-0.5 text-xs font-semibold text-accent-700">
+            <Link
+              href={getCategoryPath(category.id)}
+              className="inline-block rounded-full bg-accent-100 px-2.5 py-0.5 text-xs font-semibold text-accent-700 hover:bg-accent-200/80"
+            >
               {category.label}
-            </span>
+            </Link>
           ) : null}
           <h1 className="mt-4 font-serif text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">
             {article.title}
@@ -95,9 +109,11 @@ export default async function ArticlePage({ params }: PageProps) {
           <ArticleBody article={article} />
         </div>
 
-        <div className="mt-10">
-          <ProductCallout />
-        </div>
+        {article.category === "planung" ? (
+          <div className="mt-10">
+            <ProductCallout />
+          </div>
+        ) : null}
 
         {related.length > 0 ? (
           <aside className="mt-16 border-t border-ink-900/10 pt-10">
