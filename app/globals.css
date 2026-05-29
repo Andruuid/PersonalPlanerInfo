@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink-950: #0f1419;
+  --color-ink-900: #1a2332;
+  --color-ink-700: #3d4f5f;
+  --color-ink-600: #5a6b7a;
+  --color-ink-500: #7a8b99;
+  --color-paper: #faf8f5;
+  --color-paper-warm: #f3efe8;
+  --color-accent-700: #9a3412;
+  --color-accent-600: #c2410c;
+  --color-accent-500: #ea580c;
+  --color-accent-100: #ffedd5;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), Georgia, serif;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink-900);
+}
+
+.prose-content h2 {
+  @apply mt-10 text-2xl font-semibold tracking-tight text-ink-900;
+}
+
+.prose-content h2:first-child {
+  @apply mt-0;
+}
+
+.prose-content p {
+  @apply mt-4 leading-relaxed text-ink-700;
+}
+
+.prose-content ul {
+  @apply mt-4 list-disc space-y-2 pl-5 text-ink-700;
+}
+
+.prose-content li {
+  @apply leading-relaxed;
+}
+
+.prose-content a {
+  @apply font-medium text-accent-600 underline decoration-accent-600/30 underline-offset-2 hover:decoration-accent-600;
+}
