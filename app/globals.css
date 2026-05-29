@@ -25,7 +25,19 @@ body {
   @apply mt-10 text-2xl font-semibold tracking-tight text-ink-900;
 }
 
-.prose-content h2:first-child {
+.prose-content > h2:first-child {
+  @apply mt-0;
+}
+
+.prose-content > section {
+  @apply mt-10;
+}
+
+.prose-content > section > h2 {
+  @apply mt-0;
+}
+
+.prose-content > p:first-child {
   @apply mt-0;
 }
 
